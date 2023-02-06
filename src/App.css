@@ -21,3 +21,17 @@ body{
  align-items: center;
  gap: 40px;
 }
+.login{
+  margin: 150px auto;
+  padding: 25px;
+  max-width: 500px;
+  background: #e3e3e3;
+  border: 2px solid #585858;
+  border-radius: 29px;
+  box-shadow: 3px 13px 9px;
+  
+} 
+.login:hover{
+  transform: scale(1.1);
+  transition: 0.5s ease;
+}
