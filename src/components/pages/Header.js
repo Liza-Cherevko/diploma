@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import MovieIcon from '@mui/icons-material/Movie';
 import { Tab, Tabs } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 
 function Header() {
@@ -23,7 +24,8 @@ function Header() {
                       onChange={(e, value) => setValue(value)}
                       indicatorColor='secondary'
                   >
-                          <Tab label='Movies List'> </Tab>
+                      {/* <NavLink to='/list'> Movies List </NavLink> */}
+                      <NavLink to='/list' style={{color: 'white'}}> <Tab label='Movies List'>  </Tab></NavLink>
                       <Tab label='New'> </Tab>
                       <Tab label='Announcements'> </Tab>
                           <Tab label='Collections'> </Tab>
