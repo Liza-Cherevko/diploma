@@ -25,13 +25,13 @@ function Header() {
                       indicatorColor='secondary'
                   >
                       {/* <NavLink to='/list'> Movies List </NavLink> */}
-                      <NavLink to='/list' style={{color: 'white'}}> <Tab label='Movies List'>  </Tab></NavLink>
-                      <Tab label='New'> </Tab>
+                      <Tab label='Movies List' component={NavLink} to='/list'>   </Tab>
+                      <Tab label='New' component={NavLink} to='/new-list'>   </Tab>
                       <Tab label='Announcements'> </Tab>
                           <Tab label='Collections'> </Tab>
                       </Tabs>
-                  <Button sx={{marginLeft:'auto'}} variant='contained' color='secondary' >Login</Button>
-                  <Button sx={{marginLeft:'10px'}}  variant='contained' color='secondary'>Sign Up</Button>
+                  <Button sx={{marginLeft:'auto'}} variant='contained' color='secondary' >Logout</Button>
+                  {/* <Button sx={{marginLeft:'10px'}}  variant='contained' color='secondary'>Sign Up</Button> */}
               </Toolbar>
           </AppBar>
     </React.Fragment>

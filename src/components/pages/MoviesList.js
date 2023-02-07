@@ -1,37 +1,41 @@
 import React from 'react';
 import useFilms from '../hooks/useFilms';
 import { CardActionArea, Card, CardContent, CardMedia, Typography, listClasses } from '@mui/material';
-
+import Header from './Header';
+import { NavLink } from 'react-router-dom';
 
 
 
 function MoviesList () {
 
-  const { items } = useFilms()
-  console.log(items);
+  const { data } = useFilms()
+  console.log(data);
 
   return (
+    <>
+        <Header />
       <div className='cardWrap'>
 
-      {items && items.length && items.map((item) => (
-        <div key={item.kinopoiskId}>
-        <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      {data && data.length && data.map((item) => (
+        <div key={item.kinopoisk_id}>
+        <Card sx={{ width: 350, height:400 }}>
+      <CardActionArea component={NavLink} to='/movie-card' >
         <CardMedia
               component="img"
               height="100%"
-              image={item.posterUrl}
-          alt={item.nameOriginal}
-        />
+              image={item.small_poster}
+          alt={item.name_original}
+              />
+              
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-           {/* {item.nameOriginal} */}
-        </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
+          {/* <Typography gutterBottom variant="h5" component="div">
+           {item.nameOriginal}
+        </Typography> */}
+          {/* <Typography variant="body2" color="text.secondary">
+            
+       </Typography> */}
+              </CardContent>
+              
       </CardActionArea>
           </Card> 
           </div>
@@ -40,6 +44,7 @@ function MoviesList () {
       
        </div>
       
+  </>
   );
 }
 // key={item.kinopoiskId}

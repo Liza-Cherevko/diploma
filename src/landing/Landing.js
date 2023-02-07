@@ -12,9 +12,7 @@ function Landing() {
   return (
      
     <>
-          {/* <NavLink to="/auth">Login</NavLink>
-      <NavLink to="/auth/logout">Logout</NavLink>
-      <NavLink to="/admin">Admin Panel</NavLink></div> */}
+    
         
           <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'text.secondary', color: 'background.paper', margin: 'auto' }}>
             
