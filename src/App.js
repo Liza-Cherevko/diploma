@@ -6,7 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Landing from './landing/Landing';
 import Auth from './components/auth/pages/Auth';
 import Login from './components/auth/pages/Login';
-import NewList from './components/pages/NewList';
+// import NewList from './components/pages/NewList';
 import MoviesCard from './components/pages/MoviesCard';
 
 function App() {
@@ -14,13 +14,15 @@ function App() {
     <div className="container">
         {/* <Header /> */}
       <Routes>
-        <Route  exact path='/' element={<Landing />} />
-        <Route path='/list' element={<MoviesList />} />
+        <Route exact path='/' element={<Landing />} />
+        
+        <Route path='/list' element={<MoviesList />}/>
+        <Route path='/movie-card/:cardId' element={<MoviesCard />}/>
+       
 
-        <Route path='/new-list' element={<NewList/>}/>
-  
-        <Route path='/movie-card' element={<MoviesCard />}/>
-    
+        {/* <Route path='/new-list' element={<NewList/>}/> */}
+       
+       
           
         <Route path='/auth' element={<Auth />}>
         <Route path="" element={<Navigate replace={true} to="login" />} />
