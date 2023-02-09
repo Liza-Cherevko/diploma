@@ -14,12 +14,12 @@ export default function useDetails(id) {
                 "Content-Type": "aplication/json",
                 "X-API-KEY": API_KEY,
             }
-},).then(({ data }) => {
+}).then(({ data }) => {
             console.log(data)
             setDetails(data)
         })
     }, []);
-
+    console.log(details)
     return details
     
 }

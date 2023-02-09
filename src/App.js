@@ -17,7 +17,7 @@ function App() {
         <Route exact path='/' element={<Landing />} />
         
         <Route path='/list' element={<MoviesList />}/>
-        <Route path='/movie-card/:cardId' element={<MoviesCard />}/>
+        <Route path='/movie-card/:id' element={<MoviesCard />}/>
        
 
         {/* <Route path='/new-list' element={<NewList/>}/> */}

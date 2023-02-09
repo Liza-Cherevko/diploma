@@ -1,21 +1,37 @@
-import React from 'react'
+
 import useDetails from '../hooks/useDetails';
 import { DefaultPlayer as Video } from 'react-html5video';
 import 'react-html5video/dist/styles.css';
 import { Card, CardContent, CardMedia, Typography, Button , CardActions } from '@mui/material';
+import useFilms from '../hooks/useFilms';
+import { Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 
 
 
 function MoviesCard() {
- 
-  const details = useDetails(328)
-  console.log(details);
+  let { id } = useParams();
+  console.log(id)
+  const [cardId, setCardId] = useState(null)
+  
+  const {filmId} = useFilms(cardId)
+  
+  const details = useDetails(id)
+  console.log(filmId);
+
+  useEffect(() => {
+    if (!filmId) return
+    setCardId(filmId)
+ }, [filmId])
 
   return (
+  
     <>
-    
+      {/* <Outlet /> 
+       {details && details.length && details.map((item) => (
+          <div key={item.filmId}  > */}
       <Card sx={{ maxWidth: 345 }} style={{margin: '150px auto'}} >
       <CardMedia
         
@@ -47,10 +63,13 @@ function MoviesCard() {
             }}>
         <source src={details.webUrl} type="video/webm" />
             <track label="English" kind="subtitles" srcLang="en" src="http://source.vtt" default />
-        </Video>
-  
-     
-</>
+          </Video>
+          
+        {/* </div>
+
+        ))} */}
+    </>
+
   )
 }
 
@@ -58,39 +77,3 @@ export default MoviesCard
 
 
 
-
-// {kinopoiskId && kinopoiskId.length &&kinopoiskId.map((item) => (
-//   <div key={kinopoiskId.filmId}  onClick={() => console.log(item.kinopoiskId) }>
-//   <Card sx={{ width: 350, }} className='hover'  >
-// <CardActionArea>
-//     <CardMedia 
-//           className={'movie__cover-inner'}
-//         title={item.nameOriginal}
-//         component='img'
-//         max-width= "100%"
-//         height="100%"
-//         image={item.posterUrl}
-//         alt={item.nameOriginal}
-//       />
-//       <CardMedia  className='movie__cover--darkened' />
-
-// <CardContent sx={{ height: 150, }}>
-//   <Typography gutterBottom variant="h5" component="div">
-//   {item.description}
-//   </Typography>
-//   <Typography variant="body2" color="text.secondary">
-//           <ul>
-       
-//           {item.genres.map(
-//             (genre) => (
-//               <li style={{color:'black', marginLeft:5}}>{genre.genre }</li>
-//     )
-//   )}
-// </ul>
-//   </Typography>
-// </CardContent>
-// </CardActionArea>
-//   </Card> 
-
-//   </div>
-// ))} 

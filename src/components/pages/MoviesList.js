@@ -23,7 +23,7 @@ function MoviesList () {
         {films && films.length && films.map((item) => (
           <div key={item.filmId}  onClick={() => console.log(item.filmId) }>
           <Card sx={{ width: 350, }} className='hover'  >
-              <CardActionArea component={NavLink} to='/movie-card/:{item.filmId}' >
+              <CardActionArea component={NavLink} to={'/movie-card/'+item.filmId }>
             <CardMedia 
                   className={'movie__cover-inner'}
                 title={item.nameEn}
