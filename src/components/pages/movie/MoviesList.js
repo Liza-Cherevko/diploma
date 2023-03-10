@@ -1,24 +1,45 @@
-import React from 'react';
-import useFilms from '../hooks/useFilms';
-import { CardActionArea, Card, CardContent, CardMedia, Typography, listClasses, ClickAwayListener } from '@mui/material';
-import Header from './Header';
+
+import useFilms from '../../hooks/useFilms';
+import { CardActionArea, Card, CardContent, CardMedia, Typography  } from '@mui/material';
+import Header from '../Header';
+import { ClipLoader  } from 'react-spinners'
 import { NavLink, Outlet } from 'react-router-dom';
-import  '../../common/style.css'
+import  '../../../common/style.css'
+import useLoading from '../../hooks/useLoading';
+import SearchBar from '../components/SearchBar';
 
 
 
 function MoviesList () {
-
-
-  const { films} = useFilms()
-
-
+  const { films } = useFilms()
+  const isLoading = useLoading()
+  
+  const override = {
+    display: "block",
+    margin: "400px auto",
+    borderColor: "gray",
+  };
 
   return (
     <>
       <Header />
+     
       <Outlet />
-      <div className='cardWrap'>
+      <SearchBar style={{mt:'30'}} />
+      {isLoading ? 
+        (<ClipLoader
+          color={'#0053b1'}
+          loading={isLoading}
+          size={150}
+          cssOverride={override}
+          aria-label="Loading Spinner"
+          data-testid="loader" 
+      />)
+        :
+
+        (
+       
+          <div className='cardWrap'>
 
         {films && films.length && films.map((item) => (
           <div key={item.filmId}  onClick={() => console.log(item.filmId) }>
@@ -56,7 +77,8 @@ function MoviesList () {
           </div>
       ))} 
     
-  </div>
+  </div>)
+}
 </> 
   
   );

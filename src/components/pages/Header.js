@@ -16,9 +16,9 @@ function Header() {
       <React.Fragment>
           <AppBar sx={{ background: 'black' }}>
       
-                <Toolbar>
-                      <MovieIcon/>
-                      Movie
+                <Toolbar >
+                      <MovieIcon component={NavLink} to='/main'></MovieIcon> 
+                    <Tab label='Movie' component={NavLink} to='/main'>   </Tab>
                   <Tabs sx={{ margin: 'auto' }}
                       textColor='inherit'
                       indicatorColor='secondary'
@@ -26,9 +26,9 @@ function Header() {
                       component="p"
                   >
                      
-                      <Tab label='Movies List' component={NavLink} to='/list'>   </Tab>
-                      <Tab label='New' component={NavLink} to='/new-list'>   </Tab>
-                      <Tab label='Announcements'> </Tab>
+                      <Tab label='Movies List' component={NavLink} to='/movies-list'>   </Tab>
+                      <Tab label='Serials' component={NavLink} to='/serials-list'>   </Tab>
+                      <Tab label='TV Show' component={NavLink} to='/tvshow-list'> </Tab>
                           <Tab label='Collections'> </Tab>
                       </Tabs>
                   <Button sx={{marginLeft:'auto'}} variant='contained' color='secondary' >Logout</Button>
