@@ -5,7 +5,7 @@ const API_URL_POPULAR ='https://kinopoiskapiunofficial.tech/api/v2.2/films/top?t
 
 export default function useFilms() { 
     const [list, setList] = useState([]);
- 
+  
     useEffect(() => {
         axios.get( API_URL_POPULAR , {
             headers: {
@@ -18,7 +18,7 @@ export default function useFilms() {
     }, []);
 
     console.log(list.films)
-    return { list }
+    return { list}
     
 }
 

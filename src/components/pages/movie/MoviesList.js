@@ -16,7 +16,7 @@ function MoviesList() {
 
   const list = useFilms()
 
-  console.log(list.films);
+  console.log(list);
   
 
 
@@ -49,7 +49,7 @@ function MoviesList() {
        
           <div className='cardWrap'>
 
-        {list.films && list.films.length && list.films.map((item) => (
+        {list.list.films && list.list.films.length && list.list.films.map((item) => (
           <div key={item.filmId} onClick={() => console.log(item.filmId)}>
             <Cards item={item} />
           </div>
