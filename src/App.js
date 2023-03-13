@@ -1,7 +1,5 @@
 
 import './App.css';
-
-
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Landing from './landing/Landing';
 import Auth from './components/auth/pages/Auth';

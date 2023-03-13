@@ -2,6 +2,9 @@ import React from 'react'
 import Header from '../Header'
 import  '../../../common/main.css'
 import Carousel from '../components/Carousel'
+import MoviesList from '../movie/MoviesList'
+
+
 
 function Main() {
     return (
@@ -17,8 +20,13 @@ function Main() {
                 </div>
             </div>
             </section>
+            <section className='carousel-bg' >
+                <Carousel />
+            </section>
             <section>
-                <Carousel/>
+              
+                    <MoviesList />
+           
             </section>
     </>
   )
